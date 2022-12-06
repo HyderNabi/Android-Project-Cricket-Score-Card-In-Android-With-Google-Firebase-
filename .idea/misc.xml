@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_create_match.xml" value="0.25271739130434784" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_splash_screen.xml" value="0.25271739130434784" />
+        <entry key="..\:/Scorify-master/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.259" />
+        <entry key="..\:/Scorify-master/app/src/main/res/drawable/ic_arrow_forward_black_24dp.xml" value="0.259" />
+        <entry key="..\:/Scorify-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.259" />
+        <entry key="..\:/Scorify-master/app/src/main/res/drawable/ic_refresh_black_24dp.xml" value="0.259" />
+        <entry key="..\:/Scorify-master/app/src/main/res/drawable/my_shape.xml" value="0.259" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_admin.xml" value="0.25" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_create_match.xml" value="0.2890625" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_history.xml" value="0.2890625" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_homepage.xml" value="0.29322916666666665" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_live_matches.xml" value="0.2890625" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_live_score.xml" value="0.33" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_manager.xml" value="0.2890625" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_matchcode.xml" value="0.2803442028985507" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_new_matches.xml" value="0.2803442028985507" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_newacc.xml" value="0.29322916666666665" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_old_matches.xml" value="0.2890625" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_playername.xml" value="0.2890625" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_splash_screen.xml" value="0.25271739130434784" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_startmatch.xml" value="0.29322916666666665" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_test.xml" value="0.27898550724637683" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_user_score_card.xml" value="0.25" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/activity_userpage.xml" value="0.2890625" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/item.xml" value="0.33" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/itemmatch.xml" value="0.33" />
+        <entry key="..\:/Scorify-master/app/src/main/res/layout/livematchitem.xml" value="0.33" />
+        <entry key="..\:/Scorify-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.259" />
+        <entry key="..\:/Scorify-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.259" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
