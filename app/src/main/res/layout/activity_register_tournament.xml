@@ -1,0 +1,405 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#FFF8E1"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5"> <!-- to show what the parent is -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F9FBE7"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/hind_guntur"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Enter Your Team Details"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:id="@+id/h1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="Team Name"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/h2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h1"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/TeamName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Enter Team Name"
+                            android:maxLength="15"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/h3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h2"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="Adress"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/h4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h3"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/Address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Enter Your Address"
+                            android:maxLength="15"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/h40"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h4"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="Contact Number"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/h41"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h40"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Enter Your contact"
+                            android:maxLength="15"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="The First Two Players Will Be Openers!"
+                            android:textColor="#F80000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="Name of the Players"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP1P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="First Player"
+                            android:maxLength="15"
+                            android:text="Babar Azam"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP2P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Second Player"
+                            android:maxLength="15"
+                            android:text="Mohd Rizwan"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP3P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Third Player"
+                            android:maxLength="15"
+                            android:text="Imaad Waseem" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP4P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Fourth Player"
+                            android:maxLength="15"
+                            android:text="Shadab Khan" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP5P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Fifth Player"
+                            android:maxLength="15"
+                            android:text="Mohd Hafeez" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP6P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Sixth Player"
+                            android:maxLength="15"
+                            android:text="Haider Ali"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP7P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Seventh Player"
+                            android:maxLength="15"
+                            android:text="Naseem Shah" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP8P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Eighth Player"
+                            android:maxLength="15"
+                            android:text="Haris Rouf"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP9P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Nineth Player"
+                            android:maxLength="15"
+                            android:text="Shaheenshah afridi"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP10P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Tenth Player"
+                            android:maxLength="15"
+                            android:text="Mohd Waseem" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/eVHostP11P"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Last Player"
+                            android:maxLength="15"
+                            android:text="Mohd Aamir" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardElevation="10dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/submit"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:src="@android:drawable/ic_menu_send" />
+                        <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Register"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</ScrollView>

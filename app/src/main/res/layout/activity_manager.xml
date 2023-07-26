@@ -46,25 +46,47 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <LinearLayout
-                            android:id="@+id/Heading"
+                            android:id="@+id/datetime"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/Date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Date: date"
+                                android:textColor="#000000" />
+                            <TextView
+                                android:id="@+id/Time"
+                                android:layout_marginLeft="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Time: time"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/datetime">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
                                 android:text="Playing : "
                                 android:textColor="#000000"
-                                android:fontFamily="@font/hind_guntur"
                                 android:textSize="20dp" />
 
                             <TextView
                                 android:id="@+id/TeamName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
                                 android:text="PAKISTAN"
                                 android:textColor="#3A3939"
-                                android:fontFamily="@font/hind_guntur"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -121,9 +143,9 @@
                                         android:id="@+id/SCORE_VIEW"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="SCORE : "
                                         android:fontFamily="@font/hind_guntur"
-                                        android:textSize="20dp"
+                                        android:text="SCORE : "
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -131,10 +153,10 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_toRightOf="@id/SCORE_VIEW"
-                                        android:text="104"
                                         android:fontFamily="@font/hind_guntur"
+                                        android:text="104"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -144,7 +166,7 @@
                                         android:layout_toRightOf="@+id/Runs"
                                         android:text="/"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -155,7 +177,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="4"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -163,9 +185,9 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_below="@id/SCORE_VIEW"
-                                        android:text="OVERS : "
                                         android:fontFamily="@font/hind_guntur"
-                                        android:textSize="20dp"
+                                        android:text="OVERS : "
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -177,7 +199,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="3.2"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
                                     <TextView
                                         android:id="@+id/sep2"
@@ -187,7 +209,7 @@
                                         android:layout_below="@id/SCORE_VIEW"
                                         android:text="/"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -199,7 +221,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="20"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -209,19 +231,20 @@
                                         android:layout_below="@id/Over_View"
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="CRR : "
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:id="@+id/runRate"
+                                        android:maxLength="6"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_below="@id/Over_View"
-                                        android:fontFamily="@font/hind_guntur"
                                         android:layout_toRightOf="@+id/CRR"
+                                        android:fontFamily="@font/hind_guntur"
                                         android:text="8.2"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
 
@@ -244,7 +267,7 @@
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="TOSS : "
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -256,7 +279,7 @@
                                         android:maxLength="3"
                                         android:text="PAKISTAN"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -266,19 +289,19 @@
                                         android:layout_below="@+id/TOSS"
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="OPT : "
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:id="@+id/tossOpt"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:fontFamily="@font/hind_guntur"
                                         android:layout_below="@+id/TOSS"
                                         android:layout_toRightOf="@id/opt"
+                                        android:fontFamily="@font/hind_guntur"
                                         android:text="BAT"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                 </RelativeLayout>
@@ -318,10 +341,10 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="BATSMAN"
+                                        android:text="Batsman"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -338,7 +361,7 @@
                                         android:text="R"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -348,7 +371,7 @@
                                         android:text="B"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -358,7 +381,7 @@
                                         android:text="4s"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -368,7 +391,7 @@
                                         android:text="6s"
                                         android:textColor="#000000"
                                         android:fontFamily="@font/hind_guntur"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -378,7 +401,7 @@
                                         android:text="SR"
                                         android:textColor="#000000"
                                         android:fontFamily="@font/hind_guntur"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
                                 </TableRow>
 
@@ -578,10 +601,10 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="2"
-                                        android:text="BOWLER"
+                                        android:text="Bowler"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -590,7 +613,7 @@
                                         android:layout_weight="1"
                                         android:text="O"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textStyle="bold" />
 
@@ -601,7 +624,7 @@
                                         android:text="R"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -611,7 +634,7 @@
                                         android:text="W"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -621,7 +644,7 @@
                                         android:text="ER"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                 </TableRow>
@@ -672,6 +695,7 @@
 
                                     <TextView
                                         android:id="@+id/Bow_Economy"
+                                        android:maxLength="6"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -727,17 +751,17 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="THIS OVER : "
+                                        android:text="This Over : "
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:id="@+id/this_Over"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
                                         android:layout_weight="3"
                                         android:text="1  2  3  4  5  6"
                                         android:fontFamily="@font/hind_guntur"
@@ -768,10 +792,10 @@
                     android:id="@+id/input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <TableLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="fill_parent">
 
                         <TableRow
@@ -915,8 +939,21 @@
                                 />
 
                         </TableRow>
-
                     </TableLayout>
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center">
+                        <Button
+                            android:id="@+id/Retire"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="Retire Batsman"
+                            android:textAllCaps="false"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </TableRow>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

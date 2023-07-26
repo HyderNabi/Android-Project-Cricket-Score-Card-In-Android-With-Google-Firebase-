@@ -3,37 +3,37 @@
     android:layout_width="match_parent"
     android:background="#FFF8E1"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="5"> <!-- to show what the parent is -->
-            <RelativeLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F9FBE7"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#F9FBE7"
-                    android:gravity="center_horizontal">
+                    android:fontFamily="@font/hind_guntur"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Enter Tournament Details"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/hind_guntur"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:text="Enter Match Details"
-                        android:textColor="#000000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+            </LinearLayout>
         </RelativeLayout>
-            <RelativeLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -59,7 +59,7 @@
                             android:textColor="#000000"
                             android:textStyle="bold"
                             android:fontFamily="@font/hind_guntur"
-                            android:text="Team A Name"/>
+                            android:text="Tournament Name"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -70,11 +70,11 @@
                         android:gravity="center">
 
                         <EditText
-                            android:id="@+id/host_team_name"
+                            android:id="@+id/TourName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/hind_guntur"
-                            android:hint="Enter Team A Name"
+                            android:hint="Enter Tournament Name"
                             android:maxLength="15"
                             android:textColor="#000000"
                             android:textStyle="bold" />
@@ -91,7 +91,7 @@
                             android:textColor="#000000"
                             android:textStyle="bold"
                             android:fontFamily="@font/hind_guntur"
-                            android:text="Team B Name"/>
+                            android:text="Tournament Vanue"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -102,11 +102,11 @@
                         android:gravity="center">
 
                         <EditText
-                            android:id="@+id/vistor_team_name"
+                            android:id="@+id/TourVanue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/hind_guntur"
-                            android:hint="Enter Team B Name"
+                            android:hint="Enter Tournament Vanue"
                             android:maxLength="15"
                             android:textColor="#000000"
                             android:textStyle="bold" />
@@ -117,129 +117,7 @@
 
         </RelativeLayout>
 
-            <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="10dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <LinearLayout
-                        android:id="@+id/h5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000000"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/hind_guntur"
-                            android:text="Toss Won"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/h6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/h5"
-                        android:gravity="center">
-                        <RadioGroup
-                            android:id="@+id/radioGroup"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/rBtnHostTeam"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:clickable="true"
-                                android:cursorVisible="false"
-                                android:focusable="auto"
-                                android:fontFamily="@font/hind_guntur"
-                                android:onClick="onRadioButtonClicked"
-                                android:shadowColor="#00F1EDED"
-                                android:text="Team A" />
-
-                            <RadioButton
-                                android:id="@+id/rBtnVistorTeam"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:checked="false"
-                                android:fontFamily="@font/hind_guntur"
-                                android:onClick="onRadioButtonClicked"
-                                android:text="Team B" />
-                        </RadioGroup>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/h7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/h6"
-                        android:gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000000"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/hind_guntur"
-                            android:text="Opted"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/h8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/h7"
-                        android:gravity="center">
-
-                        <RadioGroup
-                            android:id="@+id/radioGroup7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/rBtnBat"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:clickable="true"
-                                android:cursorVisible="false"
-                                android:focusable="auto"
-                                android:fontFamily="@font/hind_guntur"
-                                android:onClick="onRadioButtonClicked1"
-                                android:shadowColor="#00F1EDED"
-                                android:text="Bat" />
-
-                            <RadioButton
-                                android:id="@+id/rBtnBowl"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:checked="false"
-                                android:fontFamily="@font/hind_guntur"
-                                android:onClick="onRadioButtonClicked1"
-                                android:text="Bowl" />
-                        </RadioGroup>
-                    </LinearLayout>
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-        </RelativeLayout>
-
-            <RelativeLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -265,7 +143,7 @@
                             android:textColor="#000000"
                             android:textStyle="bold"
                             android:fontFamily="@font/hind_guntur"
-                            android:text="Total Overs"/>
+                            android:text="No. Of Teams"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -276,11 +154,44 @@
                         android:gravity="center">
 
                         <EditText
-                            android:id="@+id/overs"
+                            android:id="@+id/teamsNO"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/hind_guntur"
-                            android:hint="Enter Totall Overs"
+                            android:hint="Total Teams"
+                            android:inputType="number"
+                            android:maxLength="15"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/h11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h10"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="Total Fees"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/h12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h11"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/fees"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Total Fees"
                             android:inputType="number"
                             android:maxLength="15"
                             android:textColor="#000000"
@@ -291,8 +202,93 @@
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:id="@+id/h13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="Match Type"/>
+                    </LinearLayout>
 
-            <RelativeLayout
+                    <LinearLayout
+                        android:id="@+id/h14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h13"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="T20 or one day"
+                            android:inputType="number"
+                            android:maxLength="15"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/h15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h14"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/hind_guntur"
+                            android:text="Starting Date"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/h16"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/h15"
+                        android:gravity="center">
+                        <EditText
+                            android:id="@+id/date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/hind_guntur"
+                            android:hint="Starting Date"
+                            android:inputType="date"
+                            android:maxLength="15"
+                            android:textColor="#000000"
+                            android:focusable="false"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -313,7 +309,7 @@
                         android:gravity="center">
 
                         <ImageButton
-                            android:id="@+id/ButtonStartA"
+                            android:id="@+id/submit"
                             android:layout_width="100dp"
                             android:layout_height="70dp"
                             android:src="@android:drawable/ic_menu_send" />

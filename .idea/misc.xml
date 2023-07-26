@@ -3,8 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_ball_byball.xml" value="0.27898550724637683" />
         <entry key="..\:/Cricbook/app/src/main/res/layout/activity_create_match.xml" value="0.25271739130434784" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_create_tournament.xml" value="0.22418478260869565" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_history.xml" value="0.25271739130434784" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_homepage.xml" value="0.1897644927536232" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_manager.xml" value="0.25" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_matchcode.xml" value="0.25271739130434784" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_newacc.xml" value="0.25271739130434784" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_playername.xml" value="0.1897644927536232" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_register_tournament.xml" value="0.22418478260869565" />
         <entry key="..\:/Cricbook/app/src/main/res/layout/activity_splash_screen.xml" value="0.25271739130434784" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_startmatch.xml" value="0.25271739130434784" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_tournaments.xml" value="0.22418478260869565" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/activity_user_score_card.xml" value="0.21354166666666666" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/item.xml" value="0.21603260869565216" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/itemmatch.xml" value="0.25271739130434784" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/itemtour.xml" value="0.22447916666666667" />
+        <entry key="..\:/Cricbook/app/src/main/res/layout/over_item.xml" value="0.27898550724637683" />
         <entry key="..\:/Scorify-master/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.259" />
         <entry key="..\:/Scorify-master/app/src/main/res/drawable/ic_arrow_forward_black_24dp.xml" value="0.259" />
         <entry key="..\:/Scorify-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.259" />

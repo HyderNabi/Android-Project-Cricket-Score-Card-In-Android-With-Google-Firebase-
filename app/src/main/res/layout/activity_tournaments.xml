@@ -2,7 +2,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background = "#FFF8E1">
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,7 +22,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 app:cardCornerRadius="10dp">
-
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="300dp"
@@ -62,7 +60,7 @@
                                 android:gravity="center">
 
                                 <androidx.cardview.widget.CardView
-                                    android:id="@+id/newMatch"
+                                    android:id="@+id/newTour"
                                     android:layout_width="120dp"
                                     android:layout_height="120dp"
                                     app:cardCornerRadius="10dp">
@@ -74,7 +72,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:gravity="center"
                                         android:lineHeight="15dp"
-                                        android:text="Start\nNew\nMatch"
+                                        android:text="Create\nTournament"
                                         android:textColor="#000000"
                                         android:textSize="15dp"
                                         android:textStyle="bold" />
@@ -89,7 +87,7 @@
                                 android:padding="20dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:id="@+id/match_id"
+                                    android:id="@+id/allTour"
                                     android:layout_width="120dp"
                                     android:layout_height="120dp"
                                     app:cardCornerRadius="10dp">
@@ -101,7 +99,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:gravity="center"
                                         android:lineHeight="15dp"
-                                        android:text="Check\nMatch\nSummary"
+                                        android:text="All\nTournaments"
                                         android:textColor="#000000"
                                         android:textSize="15dp"
                                         android:textStyle="bold" />
@@ -142,7 +140,7 @@
                                 android:gravity="center">
 
                                 <androidx.cardview.widget.CardView
-                                    android:id="@+id/myMatches"
+                                    android:id="@+id/myTour"
                                     android:layout_width="120dp"
                                     android:layout_height="120dp"
                                     app:cardCornerRadius="10dp">
@@ -154,7 +152,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:gravity="center"
                                         android:lineHeight="15dp"
-                                        android:text="My\nMatches"
+                                        android:text="My\nTournaments"
                                         android:textColor="#000000"
                                         android:textSize="15dp"
                                         android:textStyle="bold" />
@@ -181,7 +179,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:gravity="center"
                                         android:lineHeight="15dp"
-                                        android:text="Check\nLive\nScore"
+                                        android:text="Tournaments\nApplied"
                                         android:textColor="#000000"
                                         android:textSize="15dp"
                                         android:textStyle="bold" />
@@ -196,103 +194,7 @@
 
 
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/tournament"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/down"
-                android:orientation="vertical">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
 
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:padding="20dp"
-                                android:gravity="center">
-
-                                <androidx.cardview.widget.CardView
-                                    android:id="@+id/tournaments"
-                                    android:layout_width="120dp"
-                                    android:layout_height="120dp"
-                                    app:cardCornerRadius="10dp">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        android:fontFamily="@font/hind_guntur"
-                                        android:gravity="center"
-                                        android:lineHeight="15dp"
-                                        android:text="Tournaments"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                </androidx.cardview.widget.CardView>
-                            </RelativeLayout>
-
-                        </TableRow>
-
-
-                    </LinearLayout>
-                </RelativeLayout>
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_below="@id/tournament">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardElevation="10dp"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="10dp">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageButton
-                                android:id="@+id/logout"
-                                android:layout_width="80dp"
-                                android:layout_height="40dp"
-                                android:src="@android:drawable/ic_menu_send" />
-
-                            <TextView
-                                android:id="@+id/loginMessage"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/hind_guntur"
-                                android:text="Log Out"
-                                android:textColor="#000000"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>

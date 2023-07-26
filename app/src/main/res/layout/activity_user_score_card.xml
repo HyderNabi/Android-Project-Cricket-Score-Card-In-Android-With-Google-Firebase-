@@ -1,4 +1,5 @@
-<ScrollView android:layout_width="match_parent"
+<ScrollView
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF8E1"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -83,6 +84,129 @@
                 </LinearLayout>
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/Played_panel"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Played : "
+                                android:textColor="#000000"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:id="@+id/Played_TeamName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="PAKISTAN"
+                                android:textColor="#3A3939"
+                                android:textSize="20dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="SCORE : "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/Played_score"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="149/5"
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="OVERS : "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/Played_overs"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="20/20"
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Extras : "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/Played_extras"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="1  1   2   1"
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Fall Of Wickets : "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/Played_fow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="1  1   2   1"
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.cardview.widget.CardView
@@ -109,10 +233,31 @@
 
                         </LinearLayout>
                         <LinearLayout
-                            android:id="@+id/Heading"
+                            android:id="@+id/dtime"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/Heading1">
+                            <TextView
+                                android:id="@+id/Date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Date: date"
+                                android:textColor="#000000" />
+                            <TextView
+                                android:id="@+id/Time"
+                                android:layout_marginLeft="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Time: time"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/Heading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/dtime">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -144,9 +289,9 @@
                                 android:id="@+id/InningStatus"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
                                 android:text="Ist Inning"
                                 android:textColor="#000000"
-                                android:fontFamily="@font/hind_guntur"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -155,6 +300,7 @@
 
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
@@ -188,7 +334,7 @@
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="SCORE : "
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -199,7 +345,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="104"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -209,7 +355,7 @@
                                         android:layout_toRightOf="@+id/Runs"
                                         android:text="/"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -220,7 +366,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="4"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -230,7 +376,7 @@
                                         android:layout_below="@id/SCORE_VIEW"
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="OVERS : "
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -242,7 +388,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="3.2"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -253,7 +399,7 @@
                                         android:layout_toRightOf="@+id/currentOver"
                                         android:text="/"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -265,7 +411,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="20"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -275,11 +421,12 @@
                                         android:layout_below="@id/Over_View"
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="CRR : "
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:id="@+id/runRate"
+                                        android:maxLength="6"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_below="@id/Over_View"
@@ -287,7 +434,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="8.2"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
 
@@ -310,7 +457,7 @@
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="TOSS : "
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -322,7 +469,7 @@
                                         android:maxLength="3"
                                         android:text="PAKISTAN"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -332,7 +479,7 @@
                                         android:layout_below="@+id/TOSS"
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="OPT : "
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -344,7 +491,7 @@
                                         android:fontFamily="@font/hind_guntur"
                                         android:text="BAT"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                 </RelativeLayout>
@@ -352,6 +499,55 @@
                             </LinearLayout>
 
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/extr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/score">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Extras : "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/extras"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="1  1   2   1"
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/extr">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="Fall Of Wickets : "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/fow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/hind_guntur"
+                                android:text="1  1   2   1"
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -387,7 +583,7 @@
                                         android:text="BATSMAN"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -404,7 +600,7 @@
                                         android:text="R"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -414,7 +610,7 @@
                                         android:text="B"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -424,7 +620,7 @@
                                         android:text="4s"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -434,7 +630,7 @@
                                         android:text="6s"
                                         android:textColor="#000000"
                                         android:fontFamily="@font/hind_guntur"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -444,7 +640,7 @@
                                         android:text="SR"
                                         android:textColor="#000000"
                                         android:fontFamily="@font/hind_guntur"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
                                 </TableRow>
 
@@ -639,7 +835,7 @@
                                         android:text="BOWLER"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -648,7 +844,7 @@
                                         android:layout_weight="1"
                                         android:text="O"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textStyle="bold" />
 
@@ -659,7 +855,7 @@
                                         android:text="R"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -669,7 +865,7 @@
                                         android:text="W"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -679,7 +875,7 @@
                                         android:text="ER"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                 </TableRow>
@@ -730,6 +926,7 @@
 
                                     <TextView
                                         android:id="@+id/Bow_Economy"
+                                        android:maxLength="6"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -777,11 +974,10 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="THIS OVER : "
+                                        android:text="This Over : "
                                         android:fontFamily="@font/hind_guntur"
                                         android:textColor="#000000"
-                                        android:textSize="20dp"
+                                        android:textSize="15dp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -789,6 +985,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="3"
+                                        android:layout_marginLeft="20dp"
                                         android:text="1  2  3  4  5  6"
                                         android:fontFamily="@font/hind_guntur"
                                         android:textSize="15dp"
@@ -819,6 +1016,46 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" Yet To Bat"
+                                android:textColor="#000000"
+                                android:textSize="15dp" />
+                            <TextView
+                                android:id="@+id/yettobat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Batsmens Name"
+                                android:textColor="#000000"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
                         <LinearLayout
                             android:id="@+id/summary"
                             android:layout_width="match_parent"
@@ -836,6 +1073,7 @@
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -848,149 +1086,346 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     app:cardCornerRadius="10dp">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:id="@+id/bTeam"
-                            android:layout_width="match_parent"
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
-                            <TextView
+                            <LinearLayout
+                                android:id="@+id/bTeam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Batting Team : "
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="17dp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/h1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Batting Team : "
-                                android:textColor="#000000"
-                                android:textStyle="bold"
-                                android:textSize="17dp" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/h1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/bTeam"
-                            android:orientation="horizontal">
+                                android:layout_below="@+id/bTeam"
+                                android:orientation="horizontal">
 
-                            <TableLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent">
-
-                                <TableRow
+                                <TableLayout
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent">
 
-                                    <TextView
-                                        android:layout_width="100dp"
-                                        android:layout_height="wrap_content"
-                                        android:text="Batsman"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
+                                    <TableRow
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent">
+
+                                        <TextView
+                                            android:layout_width="130dp"
+                                            android:layout_height="wrap_content"
+                                            android:text="Batsman"
+                                            android:textColor="#000000"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:textColor="#000000"
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:text="Status"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="R(B)"
+                                            android:textColor="#000000"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="4s"
+                                            android:layout_marginLeft="20dp"
+                                            android:textColor="#000000"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="6s"
+                                            android:layout_marginLeft="20dp"
+                                            android:textColor="#000000"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="SR"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
 
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="R"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="O"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="RG"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="W"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="ER"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="Taken By"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="B"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="4s"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
+                                    </TableRow>
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="6s"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
+                                </TableLayout>
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="SR"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="O"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="RG"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="W"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="ER"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-
-                                </TableRow>
-
-                            </TableLayout>
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/rec_bat"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/h1"
-                            android:orientation="horizontal">
-
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/recycler_view"
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/rec_bat"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/h1"
+                                android:orientation="horizontal">
 
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginLeft="0dp"
-                                android:layout_marginBottom="2dp" />
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recycler_view"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
 
-                        </LinearLayout>
-                    </RelativeLayout>
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginBottom="2dp" />
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </HorizontalScrollView>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp">
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:id="@+id/blTeam"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Bowling Team : "
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="17dp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/h2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/blTeam"
+                                android:orientation="horizontal">
+
+                                <TableLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent">
+
+                                    <TableRow
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent">
+
+                                        <TextView
+                                            android:layout_width="130dp"
+                                            android:layout_height="wrap_content"
+                                            android:text="Batsman"
+                                            android:textColor="#000000"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:textColor="#000000"
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:text="Status"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="R(B)"
+                                            android:textColor="#000000"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="4s"
+                                            android:layout_marginLeft="20dp"
+                                            android:textColor="#000000"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="6s"
+                                            android:layout_marginLeft="20dp"
+                                            android:textColor="#000000"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="SR"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="O"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="RG"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="W"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="50dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="ER"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:textColor="#000000"
+                                            android:text="Taken By"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="20dp"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+
+                                    </TableRow>
+
+                                </TableLayout>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/rec_bowl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/h2"
+                                android:orientation="horizontal">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recycler_view2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginBottom="2dp"/>
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </HorizontalScrollView>
+
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
         </LinearLayout>
@@ -1000,155 +1435,35 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="horizontal">
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     app:cardCornerRadius="10dp">
                     <RelativeLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <LinearLayout
-                            android:id="@+id/blTeam"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <Button
+                                android:id="@+id/generatePDF"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Bowling Team : "
-                                android:textColor="#000000"
-                                android:textStyle="bold"
-                                android:textSize="17dp" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/h2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/blTeam"
-                            android:orientation="horizontal">
-
-                            <TableLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent">
-
-                                <TableRow
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="fill_parent">
-
-                                    <TextView
-                                        android:layout_width="100dp"
-                                        android:layout_height="wrap_content"
-                                        android:text="Batsman"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="R"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="B"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="4s"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:text="6s"
-                                        android:textColor="#000000"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="SR"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="O"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="RG"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="W"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:textColor="#000000"
-                                        android:text="ER"
-                                        android:textSize="15dp"
-                                        android:textStyle="bold" />
-
-                                </TableRow>
-
-                            </TableLayout>
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/rec_bowl"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/h2"
-                            android:orientation="horizontal">
-
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/recycler_view2"
-                                android:layout_width="match_parent"
+                                android:text="Generate PDF"
+                                android:visibility="gone"/>
+                            <Button
+                                android:id="@+id/ballByball"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginLeft="0dp"
-                                android:layout_marginBottom="2dp"/>
-
+                                android:text="Ball By BAll Score"
+                                android:visibility="visible"/>
                         </LinearLayout>
+
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>

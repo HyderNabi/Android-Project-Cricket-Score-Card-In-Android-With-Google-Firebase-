@@ -1,11 +1,13 @@
 package com.example.cricify;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,8 +26,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 
 public class CreateMatch extends AppCompatActivity {
@@ -63,6 +69,7 @@ public class CreateMatch extends AppCompatActivity {
 
         initializeUI();
         _continue.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(CreateMatch.this);
@@ -96,6 +103,7 @@ public class CreateMatch extends AppCompatActivity {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void createMatchID(){
         matchKEY = new String(myref.push().getKey());   
         keyView.setText(matchKEY);
@@ -105,6 +113,7 @@ public class CreateMatch extends AppCompatActivity {
         share.setVisibility(View.VISIBLE);
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void getData(){
         intent = getIntent();
         hostTeamName = intent.getStringExtra("HostTeam");
@@ -142,13 +151,7 @@ public class CreateMatch extends AppCompatActivity {
 
 
 
-       /* hostTeamName = "Pakistan";
-        vistorTeamName = "India";
-        Overs = 2;
-        h1 = "Asif";h2 = "Bilal";h3 = "syed";h4 =  "zulfi";h5 = "babar";h6 = "shoaib"; h7 = "afridi";h8 = "razaq";h9 = "waseem";h10 = "hafeez";h11 = "umar";
-        v1 = "virat";v2 = "kohli";v3 = "rohot";v4 =  "rahul";v5 = "lakshmi";v6 = "kumar"; v7 = "bumrah";v8 = "v pant";v9 = "yadav";v10 = "ashwin";v11 = "shami";
-        toss = "Pak";
-        opted = "Bat";*/
+
 
 
         myref.child("tosswon").setValue(toss);
@@ -195,6 +198,8 @@ public class CreateMatch extends AppCompatActivity {
             TeamOnePlayerRow[i].put("WicketsTaken",0);
             TeamOnePlayerRow[i].put("Overs",0);
             TeamOnePlayerRow[i].put("EconomyRate",0);
+            TeamOnePlayerRow[i].put("TakenBy","");
+            TeamOnePlayerRow[i].put("status","");
             pushKeyID_one[i] = myref.child("Team1").push().getKey();
             myref.child("Team1").child(pushKeyID_one[i]).setValue(TeamOnePlayerRow[i]);
 
@@ -213,6 +218,8 @@ public class CreateMatch extends AppCompatActivity {
             TeamTwoPlayerRow[i].put("WicketsTaken",0);
             TeamTwoPlayerRow[i].put("Overs",0);
             TeamTwoPlayerRow[i].put("EconomyRate",0);
+            TeamTwoPlayerRow[i].put("TakenBy","");
+            TeamTwoPlayerRow[i].put("status","");
             pushKeyID_two[i] = myref.child("Team2").push().getKey();
             myref.child("Team2").child(pushKeyID_two[i]).setValue(TeamTwoPlayerRow[i]);
 
@@ -232,6 +239,9 @@ public class CreateMatch extends AppCompatActivity {
         inningdata1.put("CurrentOvers",0);
         inningdata1.put("Totalruns",0);
         inningdata1.put("WicketsOut",0);
+        inningdata1.put("Extras","");
+        inningdata1.put("FallOfWicket","");
+        inningdata1.put("ballByBall","");
         myref.child("Inning1").setValue(inningdata1);
 
         HashMap<String,Object> inningdata2 = new HashMap<String,Object>();
@@ -241,6 +251,9 @@ public class CreateMatch extends AppCompatActivity {
         inningdata2.put("CurrentOvers",0);
         inningdata2.put("Totalruns",0);
         inningdata2.put("WicketsOut",0);
+        inningdata2.put("Extras","");
+        inningdata2.put("FallOfWicket","");
+        inningdata2.put("ballByBall","");
         myref.child("Inning2").setValue(inningdata2);
 
         myref.child("Inning1").child("Batsmens_inningone").setValue("");
@@ -266,6 +279,25 @@ public class CreateMatch extends AppCompatActivity {
         myref.child("localOver").setValue(0);
         myref.child("strike").setValue(true);
         myref.child("isFinished").setValue(false);
+
+
+        //Current Date and Time of the match
+        LocalDateTime datetime =  LocalDateTime.now();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:SS");
+        try{
+            Date mydate = format.parse(datetime.toString());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+
+            //Date
+            String date = dateFormat.format(mydate);
+            //Time
+            String time = timeFormat.format(mydate);
+
+            myref.child("Date").setValue(date);
+            myref.child("Time").setValue(time);
+
+        }catch(Exception e){/*Parse Exception*/};
 
 
         _continue2.setOnClickListener(new View.OnClickListener() {

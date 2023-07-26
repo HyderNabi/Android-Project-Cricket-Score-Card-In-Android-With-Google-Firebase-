@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class HomeMenu extends AppCompatActivity {
-    CardView newMatch,match_id,myMatches,liveScore;
+    CardView newMatch,match_id,myMatches,liveScore,tournaments;
     ImageView logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,8 @@ public class HomeMenu extends AppCompatActivity {
         myMatches= findViewById(R.id.myMatches);
         liveScore= findViewById(R.id.liveScore);
         logout = findViewById(R.id.logout);
+        tournaments = findViewById(R.id.tournaments);
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,6 +89,13 @@ public class HomeMenu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent StartMatchintent=new Intent(HomeMenu.this,LiveScore.class);
                 startActivity(StartMatchintent);
+            }
+        });
+        tournaments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent tournament = new Intent(HomeMenu.this,Tournaments.class);
+                startActivity(tournament);
             }
         });
 

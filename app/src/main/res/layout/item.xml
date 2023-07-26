@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:id="@+id/bowlbody"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/body"
         android:orientation="horizontal">
@@ -25,16 +25,23 @@
 
                 <TextView
                     android:id="@+id/FBatName"
-                    android:layout_width="100dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:text="Hyder Nabi"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="NOT OUT"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
 
                 <TextView
                     android:id="@+id/RunsOnStrike"
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="12"
@@ -42,36 +49,31 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/BallsOnStrike"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="7"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-                <TextView
                     android:id="@+id/Fours_onStrike"
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="2"
+                    android:layout_marginLeft="20dp"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/Sixes_onStrike"
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="0"
+                    android:layout_marginLeft="20dp"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/SR_OnStrike"
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
                     android:text="100.34"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -79,38 +81,54 @@
 
                 <TextView
                     android:id="@+id/Overs_onStrike"
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="#000000"
                     android:text="2"
+                    android:layout_marginLeft="20dp"
                     android:textSize="15dp"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/Runs_Given"
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="#000000"
                     android:text="25"
+                    android:layout_marginLeft="20dp"
                     android:textSize="15dp"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/wickets_Taken"
-                    android:layout_width="match_parent"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="#000000"
                     android:text="2"
+                    android:layout_marginLeft="20dp"
                     android:textSize="15dp"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/EconomyRate"
-                    android:layout_width="match_parent"
+                    android:maxLength="6"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="#000000"
                     android:text="12.3"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/TakenBy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#000000"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="some Name"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 

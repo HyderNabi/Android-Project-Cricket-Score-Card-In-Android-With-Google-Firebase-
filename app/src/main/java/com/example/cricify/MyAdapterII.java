@@ -3,6 +3,7 @@ package com.example.cricify;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +34,7 @@ public class MyAdapterII extends RecyclerView.Adapter<MyAdapterII.myAnotherViewH
 
     ArrayList<ModelII> mList;
     Context context;
+    DatabaseReference myref;
 
     public MyAdapterII(Context context , ArrayList<ModelII> mList){
 
@@ -52,6 +55,54 @@ public class MyAdapterII extends RecyclerView.Adapter<MyAdapterII.myAnotherViewH
         ModelII model = mList.get(position);
         holder.teamNames.setText(model.getTeamNames());
         holder.matchid.setText(model.getMatchId());
+        StatusPanel(holder,model);
+    }
+
+    private void StatusPanel(myAnotherViewHolder holder ,ModelII model){
+       myref = FirebaseDatabase.getInstance("https://sh-scorebase-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Scorify").child(model.getMatchId());
+        myref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try{
+                    holder.date.setText("Date : "+snapshot.child("Date").getValue(String.class));
+                    holder.time.setText("Time : "+snapshot.child("Time").getValue(String.class));
+                    int first_inning_runs = snapshot.child("Inning1").child("Totalruns").getValue(Integer.class);
+                    int second_inning_runs = snapshot.child("Inning2").child("Totalruns").getValue(Integer.class);
+                    int wicketsOUt = snapshot.child("Inning2").child("WicketsOut").getValue(Integer.class);
+                    int currentOver= snapshot.child("Inning2").child("CurrentOvers").getValue(Integer.class);
+                    int total_overs = snapshot.child("Overs").getValue(Integer.class);
+                    String vistorTeam = snapshot.child("VistorTeamName").getValue(String.class);
+                    String hostTeam = snapshot.child("HostTeamName").getValue(String.class);
+
+                    if(snapshot.child("isFinished").getValue(Boolean.class)){
+                        holder.matchStatus.setText("STATUS : CLOSED");
+                        if(holder.wonbyStatus.getVisibility() == View.GONE){holder.wonbyStatus.setVisibility(View.VISIBLE);}
+                        if(second_inning_runs>=(first_inning_runs+1)){
+                            holder.wonbyStatus.setText("Match Won By "+vistorTeam+" By "+(10-wicketsOUt)+ " Wickets");
+                        }else if(second_inning_runs == first_inning_runs){
+                            holder.wonbyStatus.setText("Draw Match");
+                        }else{
+                            holder.wonbyStatus.setText("Match Won By "+hostTeam+" By "+((first_inning_runs+1)-second_inning_runs)+" Runs");
+                        }
+                    }else{
+                        holder.matchStatus.setText("STATUS : OPEN");
+                        if(snapshot.child("inning").getValue(String.class).equals("Inning2")){
+                            if(holder.wonbyStatus.getVisibility() == View.GONE){holder.wonbyStatus.setVisibility(View.VISIBLE);}
+                            holder.wonbyStatus.setText(((first_inning_runs+1)-second_inning_runs)+" Runs Needed By "+((total_overs*6)-currentOver)+" Balls");
+                        }
+
+                    }
+
+                }catch(Exception e){}
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     @Override
@@ -60,7 +111,7 @@ public class MyAdapterII extends RecyclerView.Adapter<MyAdapterII.myAnotherViewH
     }
 
     public static class myAnotherViewHolder extends RecyclerView.ViewHolder{
-        TextView teamNames,matchid;
+        TextView teamNames,matchid,matchStatus,wonbyStatus,time ,date;
         ImageButton check_details,delete_match;
         DatabaseReference myref= FirebaseDatabase.getInstance("https://sh-scorebase-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
         FirebaseUser thisuser = FirebaseAuth.getInstance().getCurrentUser();
@@ -71,10 +122,13 @@ public class MyAdapterII extends RecyclerView.Adapter<MyAdapterII.myAnotherViewH
 
             teamNames = itemView.findViewById(R.id.teamNames);
             matchid = itemView.findViewById(R.id.matchid);
-
             //buttons
             check_details = itemView.findViewById(R.id.check_details);
             delete_match = itemView.findViewById(R.id.delete_match);
+            matchStatus = itemView.findViewById(R.id.matchStatus);
+            wonbyStatus = itemView.findViewById(R.id.wonbyStatus);
+            time = itemView.findViewById(R.id.time);
+            date = itemView.findViewById(R.id.date);
 
 
             delete_match.setOnClickListener(new View.OnClickListener() {
@@ -127,5 +181,6 @@ public class MyAdapterII extends RecyclerView.Adapter<MyAdapterII.myAnotherViewH
             });
 
         }
+
     }
 }

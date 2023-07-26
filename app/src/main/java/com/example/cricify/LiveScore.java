@@ -122,7 +122,7 @@ public class LiveScore extends AppCompatActivity {
                                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:SS");
                                 Date mydate = format.parse(datetime);
                                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                                SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss a");
+                                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss a");
 
                                 //Date
                                 String date = dateFormat.format(mydate);
@@ -194,7 +194,7 @@ public class LiveScore extends AppCompatActivity {
                 progressDialog.dismiss();
                 AlertDialog.Builder builder = new AlertDialog.Builder(LiveScore.this);
                 builder.setCancelable(true);
-                builder.setMessage("Timeout...Reload?");
+                builder.setMessage("Something Went Wrong...Reload?");
                 builder.setPositiveButton("Yes",(DialogInterface.OnClickListener)(dialog, which)->{
                     loadData();
                 });

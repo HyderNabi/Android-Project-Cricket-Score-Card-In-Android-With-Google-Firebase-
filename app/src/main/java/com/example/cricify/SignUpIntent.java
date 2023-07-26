@@ -52,7 +52,7 @@ import java.util.Arrays;
 
 public class SignUpIntent extends AppCompatActivity {
 
-    private EditText email,password;
+    private EditText email,password,cPassword;
     private ImageButton signup;
     private FirebaseAuth mAuth;
     private TextView message;
@@ -83,30 +83,42 @@ public class SignUpIntent extends AppCompatActivity {
     }
 
     public void loginUserAccount() {
-        String email, password;
+        String email, password,cpassword;
         email = this.email.getText().toString();
         password = this.password.getText().toString();
+        cpassword = this.cPassword.getText().toString();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(cpassword)) {
             message.setText("Sign Up");
             Message("Fields Can't Be Empty!");
         }else {
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                message.setText("Sign Up");
-                                InsertUser();
-                                Intent intent = new Intent(SignUpIntent.this, HomeMenu.class);
-                                startActivity(intent);
-                                Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                message.setText("Sign Up");
-                                Message("Login failed! Please try again later");
-                            }
-                        }
-                    });
+            if(password.length() >=6){
+                if(password.equals(cpassword)) {
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        message.setText("Sign Up");
+                                        InsertUser();
+                                        Intent intent = new Intent(SignUpIntent.this, HomeMenu.class);
+                                        startActivity(intent);
+                                        Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        message.setText("Sign Up");
+                                        Message("Sign Up failed! Please try again later");
+                                    }
+                                }
+                            });
+                }else{
+                    message.setText("Sign Up");
+                    Message("Password Does'nt Match!");
+                }
+            }else{
+                message.setText("Sign Up");
+                Message("Length Of Password Should Be At Least 6 Characters!");
+            }
+
         }
 
     }
@@ -114,6 +126,7 @@ public class SignUpIntent extends AppCompatActivity {
     {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        cPassword = findViewById(R.id.cpassword);
         signup = findViewById(R.id.signup);
         message = findViewById(R.id.loginMessage);
 

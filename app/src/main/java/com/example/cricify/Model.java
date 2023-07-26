@@ -6,6 +6,13 @@ public class Model {
     String Name;
     Integer Overs,Runs,RunsGiven,Sixes;
     Double StrikeRate;
+    Integer WicketsTaken;
+    String TakenBy;
+    String status;
+
+    public String getTakenBy() {
+        return TakenBy;
+    }
 
     public Integer getBalls() {
         return Balls;
@@ -47,5 +54,7 @@ public class Model {
         return WicketsTaken;
     }
 
-    Integer WicketsTaken;
+    public String getStatus(){return status;}
+
+
 }

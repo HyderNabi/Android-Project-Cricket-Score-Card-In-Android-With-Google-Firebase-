@@ -89,12 +89,12 @@ public class Startmatch extends AppCompatActivity {
             else if(toss==1&&opted==0)
             {
                 playerIntent.putExtra("TOSS", Host_TeamName.getText().toString());
-                playerIntent.putExtra("OPT",bat);
+                playerIntent.putExtra("OPT",bowl);
             }
             else if( toss==0&&opted==1)
             {
                 playerIntent.putExtra("TOSS", Vistor_TeamName.getText().toString());
-                playerIntent.putExtra("OPT",bowl);
+                playerIntent.putExtra("OPT",bat);
             }
             else if(toss==0&&opted==0)
             {

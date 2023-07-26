@@ -49,6 +49,8 @@ public class Manager extends AppCompatActivity
     static int totalRuns;
     static int currentOver;
     static int wicketsOut;
+    private String Extras;
+    private String fow;
     static double runRate;
     static String ThisOver;
     static Boolean strike;
@@ -63,18 +65,21 @@ public class Manager extends AppCompatActivity
     static String BatsmanNonStrike = "";
     static String CurrentBowler = "";
 
+    private String BatsmanOnStrike_name;
     static int BatsmanOnStrike_runs;
     static int BatsmanOnStrike_balls;
     static int BatsmanOnStrike_fours;
     static int BatsmanOnStrike_sixes;
     static double BatsmanOnStrike_strikerate;
 
+    private String BatsmanNonStrike_name;
     static int BatsmanNonStrike_runs;
     static int BatsmanNonStrike_balls;
     static int BatsmanNonStrike_fours;
     static int BatsmanNonStrike_sixes;
     static double BatsmanNonStrike_strikerate;
 
+    private String CurrentBowler_name;
     static int CurrentBowler_runs;
     static int CurrentBowler_overs;
     static int CurrentBowler_wickets;
@@ -90,13 +95,15 @@ public class Manager extends AppCompatActivity
     static ArrayList<String> Temp_name_one = new ArrayList<String>();
     static ArrayList<String> Temp_name_two = new ArrayList<String>();
 
+    ArrayList<String> ballByBall = new ArrayList<>();
+
 
 
     TextView First_BatsmanName,Second_BatsmanName,Runs,Wickets_Out,Current_Over;
     TextView Run_Rate,Current_Bowler,Inning_Status,Runs_OnStrike,Runs_NOnStrike;
     TextView Balls_NOnStrike,Balls_OnStrike,SixesNonStrike,SixesonStrike,FoursNonStrike,FoursonStrike;
     TextView BowEconomy,SROnStrike, SRNOnStrike, BowOvers,BowRuns,BowWickets,thisOver;
-    TextView strikeCurA, strikeCurB,TeamName,toss_Opt,toss_won,total_Over;
+    TextView strikeCurA, strikeCurB,TeamName,toss_Opt,toss_won,total_Over,time,date;
 
     ImageView summary;
 
@@ -128,6 +135,31 @@ public class Manager extends AppCompatActivity
         getInning();    //RESTORE THE STATE OF THE INNING
 
 
+        Button retire = findViewById(R.id.Retire);
+        retire.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Manager.this);
+                builder.setCancelable(true);
+                builder.setMessage("Are you sure you want to Retire?");
+                builder.setPositiveButton("Yes",(DialogInterface.OnClickListener)(dialog, which)->{
+                    if(strike == true){
+                        myref.child(BatTeam).child(BatsmanOnStrike).child("status").setValue("DROP");
+                    }else{
+                        myref.child(BatTeam).child(BatsmanNonStrike).child("status").setValue("DROP");
+                    }
+                    RetireBatsman();
+                });
+                builder.setNegativeButton("No",(DialogInterface.OnClickListener)(dialog, which)->{
+                    dialog.cancel();
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }
+        });
+
         Button one_Btn =findViewById(R.id.ButtonRun_one);
         one_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +169,7 @@ public class Manager extends AppCompatActivity
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -144,6 +177,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(1);
                     if(localOver%6 == 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
                         SelectBowler();
@@ -162,6 +196,7 @@ public class Manager extends AppCompatActivity
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -169,6 +204,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(2);
                     if(localOver%6 == 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
                         SelectBowler();
@@ -188,6 +224,7 @@ public class Manager extends AppCompatActivity
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -195,6 +232,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(3);
                     if(localOver%6 == 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
 
@@ -220,6 +258,7 @@ public class Manager extends AppCompatActivity
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -227,6 +266,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(4);
                     if(localOver%6 == 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
                         SelectBowler();
@@ -251,6 +291,7 @@ public class Manager extends AppCompatActivity
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -258,6 +299,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(6);
                     if(localOver%6 == 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
 
@@ -274,11 +316,11 @@ public class Manager extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 UpdateState(5,1);
-
                 ThisOver = ThisOver+"  "+5;
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -286,6 +328,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(5);
                     if(localOver%6 == 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
 
@@ -306,6 +349,7 @@ public class Manager extends AppCompatActivity
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -313,6 +357,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(0);
                     if(localOver%6 == 0 && localOver != 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
 
@@ -334,17 +379,15 @@ public class Manager extends AppCompatActivity
                 Integer runs = (valueofTextField.equals(""))? 1 : Integer.parseInt(valueofTextField);
                 totalRuns = totalRuns+runs;
                 currentOver = currentOver+0;
-                try{
-                    runRate = totalRuns/(currentOver/6);
-                }catch (ArithmeticException e){
-                    try{runRate = totalRuns/currentOver;}catch(Exception exp){runRate = totalRuns;};
-                }
+                Runrate();
                 CurrentBowler_runs+=runs;
-                try{CurrentBowler_economyrate = CurrentBowler_runs/(CurrentBowler_overs/6);}catch(Exception e){};
+                CurrentBowler_economyrate = (Double.valueOf(CurrentBowler_runs)/Double.valueOf(CurrentBowler_overs))*6;
                 ThisOver = ThisOver+"  Wd("+runs+")";
+                Extras = Extras+" WD("+runs+")";
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -352,6 +395,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(0);
                     if(localOver%6 == 0 && localOver != 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
 
@@ -387,18 +431,16 @@ public class Manager extends AppCompatActivity
                 }
                 totalRuns = totalRuns+runs;
                 currentOver = currentOver+0;
-                try{
-                    runRate = totalRuns/(currentOver/6);
-                }catch (ArithmeticException e){
-                    try{runRate = totalRuns/currentOver;}catch(Exception exp){runRate = totalRuns;};
-                }
+                Runrate();
                 CurrentBowler_runs+=runs;
-                try{CurrentBowler_economyrate = CurrentBowler_runs/(CurrentBowler_overs/6);}catch(Exception e){};
+                CurrentBowler_economyrate = (Double.valueOf(CurrentBowler_runs)/Double.valueOf(CurrentBowler_overs))*6;
                 ThisOver = ThisOver+"  NB("+runs+")";
+                Extras = Extras+"  NB("+runs+")";
 
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -406,6 +448,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(runs-1);
                     if(localOver%6 == 0 && localOver != 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
 
@@ -428,18 +471,16 @@ public class Manager extends AppCompatActivity
                 totalRuns = totalRuns+runs;
                 currentOver = currentOver+1;
                 localOver++;
-                try{
-                    runRate = totalRuns/(currentOver/6);
-                }catch (ArithmeticException e){
-                    try{runRate = totalRuns/currentOver;}catch(Exception exp){runRate = totalRuns;};
-                }
+                Runrate();
                 CurrentBowler_runs+=runs;
-                try{CurrentBowler_economyrate = CurrentBowler_runs/(CurrentBowler_overs/6);}catch(Exception e){};
+                CurrentBowler_economyrate = (Double.valueOf(CurrentBowler_runs)/Double.valueOf(CurrentBowler_overs))*6;
                 ThisOver = ThisOver+"  B("+runs+")";
+                Extras = Extras+"  B("+runs+")";
 
                 UpdateFireBase();
                 checkIfWon();
                 if(CheckIfInningIsOver()){
+                    StoreOver(ThisOver);
                     ThisOver = "";
                     strike = true;
                     UpdateFireBase();
@@ -447,6 +488,7 @@ public class Manager extends AppCompatActivity
                 }else{
                     ChangeStrike(runs);
                     if(localOver%6 == 0 && localOver != 0){
+                        StoreOver(ThisOver);
                         ChangeStrike(1);//rotate Strike
                         ThisOver = "";
 
@@ -462,33 +504,55 @@ public class Manager extends AppCompatActivity
         wicket_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText extras = (EditText)findViewById(R.id.Extras);
-                String valueofTextField = String.valueOf(extras.getText());
-                extras.setText("");
-                Integer runs = (valueofTextField.equals(""))? 0 : Integer.parseInt(valueofTextField);
-                UpdateState(runs,1);
-                CurrentBowler_wickets += 1;
-                wicketsOut+=1;
-                ThisOver = ThisOver+"  W";
-                UpdateFireBase();
-                checkIfWon();
-                if(CheckIfInningIsOver()){
-                    ThisOver = "";
-                    strike = true;
-                    UpdateFireBase();
-                    Changeinning();
-                }else{
-                    ChangeStrike(runs);
-                    if(localOver%6 == 0){
-                        ChangeStrike(0);//rotate Strike
-                        ThisOver = "";
-                        SelectBowler();
+                myref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String name = snapshot.child(BowlTeam).child(CurrentBowler).child("Name").getValue(String.class);
+
+                        if(strike == true){
+                            myref.child(BatTeam).child(BatsmanOnStrike).child("TakenBy").setValue(name);
+                            myref.child(BatTeam).child(BatsmanOnStrike).child("status").setValue("OUT");
+                        }else{
+                            myref.child(BatTeam).child(BatsmanNonStrike).child("TakenBy").setValue(name);
+                            myref.child(BatTeam).child(BatsmanNonStrike).child("status").setValue("OUT");
+                        }
+
+                        EditText extras = (EditText)findViewById(R.id.Extras);
+                        String valueofTextField = String.valueOf(extras.getText());
+                        extras.setText("");
+                        Integer runs = (valueofTextField.equals(""))? 0 : Integer.parseInt(valueofTextField);
+                        UpdateState(runs,1);
+                        CurrentBowler_wickets += 1;
+                        wicketsOut+=1;
+                        ThisOver = ThisOver+"  W";
+                        fow = fow+totalRuns+"("+FormatOvers(currentOver)+")   ";
+                        UpdateFireBase();
+                        checkIfWon();
+                        if(CheckIfInningIsOver()){
+                            StoreOver(ThisOver);
+                            ThisOver = "";
+                            strike = true;
+                            UpdateFireBase();
+                            Changeinning();
+                        }else{
+                            ChangeStrike(runs);
+                            if(localOver%6 == 0){
+                                StoreOver(ThisOver);
+                                ChangeStrike(0);//rotate Strike
+                                ThisOver = "";
+                                SelectBowler();
+                            }
+                            SelectBatsman();//SELECT NEW BATSMAN
+                        }
+
                     }
-                    SelectBatsman();//SELECT NEW BATSMAN
-                }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
-
         });
 
         Button swap_Btn =findViewById(R.id.swap);
@@ -510,6 +574,13 @@ public class Manager extends AppCompatActivity
         });
 
     }
+
+    //Store ball by ball information
+    private void StoreOver(String this_Over) {
+        ballByBall.add(Current_Bowler.getText()+" : "+this_Over);
+        this.UpdateFireBase();
+    }
+
     private void Changeinning(){
         if(inning.equals("Inning1")){
             AlertDialog.Builder builder = new AlertDialog.Builder(Manager.this);
@@ -525,11 +596,14 @@ public class Manager extends AppCompatActivity
             dialog.show();
 
         }else if(inning.equals("Inning2")){
+            Extras = "";
+            fow = "";
             AlertDialog.Builder builder = new AlertDialog.Builder(Manager.this);
             builder.setCancelable(false);
             builder.setMessage("Match Finish! Go To Match Summary!");
             builder.setPositiveButton("Continue",(DialogInterface.OnClickListener)(dialog,which)->{
                 myref.child("isFinished").setValue(true);
+                finish();
                 Intent manager = new Intent(Manager.this,userScoreCard.class);
                 manager.putExtra("KEY",matchKEY);
                 startActivity(manager);
@@ -560,15 +634,11 @@ public class Manager extends AppCompatActivity
         }
         currentOver = currentOver+balls;
         localOver+=balls;
-        try{
-            runRate = totalRuns/(currentOver/6);
-        }catch (ArithmeticException e){
-            try{runRate = totalRuns/currentOver;}catch(Exception exp){};
-        }
+        Runrate();
 
         CurrentBowler_runs+=runs;
         CurrentBowler_overs+=balls;
-        try{CurrentBowler_economyrate = CurrentBowler_runs/(CurrentBowler_overs/6);}catch(Exception e){};
+        CurrentBowler_economyrate = (Double.valueOf(CurrentBowler_runs)/Double.valueOf(CurrentBowler_overs))*6;
     }
     private void FirstInning(){
         myref.child("Inning1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -588,7 +658,12 @@ public class Manager extends AppCompatActivity
             }
         });
     }
+    private void Runrate(){
+            runRate = (Double.valueOf(totalRuns)/Double.valueOf(currentOver))*6;
+    }
     private void SecondInning(){
+        runRate = 0.0;
+        ballByBall.clear();
 
         myref.child("Inning2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -624,6 +699,9 @@ public class Manager extends AppCompatActivity
 
                     wicketsOut = task.getResult().child(inning).child("WicketsOut").getValue(Integer.class);
 
+                    Extras = task.getResult().child(inning).child("Extras").getValue(String.class);
+                    fow = task.getResult().child(inning).child("FallOfWicket").getValue(String.class);
+
                     runRate = task.getResult().child("Runrate").getValue(Integer.class);
 
                     ThisOver = task.getResult().child("thisOver").getValue(String.class);
@@ -636,12 +714,14 @@ public class Manager extends AppCompatActivity
                         FirstInningRuns = task.getResult().child("Inning1").child("Totalruns").getValue(Integer.class);
                     }
 
+                    BatsmanOnStrike_name = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Name").getValue(String.class);
                     BatsmanOnStrike_runs = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Runs").getValue(Integer.class);
                     BatsmanOnStrike_balls = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Balls").getValue(Integer.class);
                     BatsmanOnStrike_fours = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Boundaries").getValue(Integer.class);
                     BatsmanOnStrike_sixes = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Sixes").getValue(Integer.class);
                     BatsmanOnStrike_strikerate = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("StrikeRate").getValue(Integer.class);
 
+                    BatsmanNonStrike_name = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Name").getValue(String.class);
                     BatsmanNonStrike_runs = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Runs").getValue(Integer.class);
                     BatsmanNonStrike_balls = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Balls").getValue(Integer.class);
                     BatsmanNonStrike_fours = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Boundaries").getValue(Integer.class);
@@ -661,6 +741,10 @@ public class Manager extends AppCompatActivity
                     Temp_key_two = (ArrayList<String>)task.getResult().child("TemporaryData").child("team2_keys").getValue();
                     Temp_name_one = (ArrayList<String>)task.getResult().child("TemporaryData").child("team1").getValue();
                     Temp_name_two =(ArrayList<String>) task.getResult().child("TemporaryData").child("team2").getValue();
+
+                    if(currentOver>=6){
+                        ballByBall = (ArrayList<String>)task.getResult().child(inning).child("ballByBall").getValue();
+                    }
 
 
                     if(State.equals("premature")){
@@ -686,12 +770,16 @@ public class Manager extends AppCompatActivity
 
                     }else{
                         CurrentBowler = task.getResult().child(inning).child("CurBowler").getValue(String.class);
+                        CurrentBowler_name = task.getResult().child(BowlTeam).child(inning).child(CurrentBowler).child("Name").getValue(String.class);
+                        Log.e("u",""+CurrentBowler_name);
                         CurrentBowler_runs = task.getResult().child(BowlTeam).child(CurrentBowler).child("RunsGiven").getValue(Integer.class);
                         CurrentBowler_overs = task.getResult().child(BowlTeam).child(CurrentBowler).child("Overs").getValue(Integer.class);
                         CurrentBowler_wickets = task.getResult().child(BowlTeam).child(CurrentBowler).child("WicketsTaken").getValue(Integer.class);
                         CurrentBowler_economyrate = task.getResult().child(BowlTeam).child(CurrentBowler).child("EconomyRate").getValue(Double.class);
                     }
                     myref.child("State").setValue("mature");
+                    myref.child(BatTeam).child(BatsmanOnStrike).child("status").setValue("NOT OUT");
+                    myref.child(BatTeam).child(BatsmanNonStrike).child("status").setValue("NOT OUT");
                     finalizeUI();
 
 
@@ -724,6 +812,8 @@ public class Manager extends AppCompatActivity
         inningdata.put("CurrentOvers",currentOver);
         inningdata.put("Totalruns",totalRuns);
         inningdata.put("WicketsOut",wicketsOut);
+        inningdata.put("Extras",Extras);
+        inningdata.put("FallOfWicket",fow);
         myref.child(inning).setValue(inningdata);
 
 
@@ -755,6 +845,8 @@ public class Manager extends AppCompatActivity
         myref.child("TemporaryData").child("team1").setValue(Temp_name_one);
         myref.child("TemporaryData").child("team2").setValue(Temp_name_two);
 
+        myref.child(inning).child("ballByBall").setValue(ballByBall);
+
 
     }
     private void SelectBatsman(){
@@ -771,10 +863,13 @@ public class Manager extends AppCompatActivity
             builder.setSingleChoiceItems(listItems, checkedItem, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if(strike)
+                    if(strike) {
                         BatsmanOnStrike = Temp_key_one.get(which);
-                    else
+                        BatsmanOnStrike_name = Temp_name_one.get(which);
+                    }else {
                         BatsmanNonStrike = Temp_key_one.get(which);
+                        BatsmanNonStrike_name = Temp_name_one.get(which);
+                    }
 
                     Temp_name_one.remove(which);
                     Temp_key_one.remove(which);
@@ -800,10 +895,13 @@ public class Manager extends AppCompatActivity
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Log.e("gg",Temp_key_two.get(which));
-                    if(strike)
+                    if(strike) {
                         BatsmanOnStrike = Temp_key_two.get(which);
-                    else
+                        BatsmanOnStrike_name = Temp_name_two.get(which);
+                    }else {
                         BatsmanNonStrike = Temp_key_two.get(which);
+                        BatsmanNonStrike_name = Temp_name_two.get(which);
+                    }
 
                     Temp_name_two.remove(which);
                     Temp_key_two.remove(which);
@@ -862,6 +960,77 @@ public class Manager extends AppCompatActivity
             builder.show();
         }
     }
+
+    private void RetireBatsman(){
+        if(inning.equals("Inning1")){
+            String listItems[] = new String[Temp_name_one.size()];
+
+            for(int i=0;i<Temp_name_one.size();i++)
+                listItems[i] = Temp_name_one.get(i);
+
+            int checkedItem = -1;
+            AlertDialog.Builder builder = new AlertDialog.Builder(Manager.this);
+            builder.setTitle("CHOOSE BATSMAN");
+            builder.setCancelable(false);
+            builder.setSingleChoiceItems(listItems, checkedItem, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if(strike) {
+                        Temp_name_one.add(BatsmanOnStrike_name);
+                        Temp_key_one.add(BatsmanOnStrike);
+                        BatsmanOnStrike = Temp_key_one.get(which);
+                    }else {
+                        Temp_name_one.add(BatsmanNonStrike_name);
+                        Temp_key_one.add(BatsmanNonStrike);
+                        BatsmanNonStrike = Temp_key_one.get(which);
+                    }
+
+                    Temp_name_one.remove(which);
+                    Temp_key_one.remove(which);
+                    UpdateRetireBatsmensState();
+                    dialog.dismiss();
+                }
+
+
+            });
+            builder.show();
+
+        }else{
+            String listItems[] = new String[Temp_name_two.size()];
+
+            for(int i=0;i<Temp_name_two.size();i++)
+                listItems[i] = Temp_name_two.get(i);
+
+            int checkedItem = -1;
+            AlertDialog.Builder builder = new AlertDialog.Builder(Manager.this);
+            builder.setTitle("CHOOSE BATSMAN");
+            builder.setCancelable(false);
+            builder.setSingleChoiceItems(listItems, checkedItem, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.e("gg",Temp_key_two.get(which));
+                    if(strike) {
+                        Temp_name_two.add(BatsmanOnStrike_name);
+                        Temp_key_two.add(BatsmanOnStrike);
+                        BatsmanOnStrike = Temp_key_two.get(which);
+                    }else {
+                        Temp_name_two.add(BatsmanNonStrike_name);
+                        Temp_key_two.add(BatsmanNonStrike);
+                        BatsmanNonStrike = Temp_key_two.get(which);
+                    }
+
+                    Temp_name_two.remove(which);
+                    Temp_key_two.remove(which);
+                    UpdateRetireBatsmensState();
+                    dialog.dismiss();
+                }
+
+
+            });
+            builder.show();
+
+        }
+    }
     public void initializeUI(){
         First_BatsmanName = (TextView) findViewById(R.id.FBatName);
         Second_BatsmanName = (TextView) findViewById(R.id.SBatName);
@@ -893,6 +1062,8 @@ public class Manager extends AppCompatActivity
         toss_won = (TextView) findViewById((R.id.tosswon));
         toss_Opt = (TextView) findViewById((R.id.tossOpt));
         summary = findViewById(R.id.submit);
+        date = findViewById(R.id.Date);
+        time = findViewById(R.id.Time);
 
     }
     public void finalizeUI(){
@@ -900,6 +1071,10 @@ public class Manager extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 try{
+
+                    date.setText("Date : "+dataSnapshot.child("Date").getValue(String.class));
+                    time.setText("Time : "+dataSnapshot.child("Time").getValue(String.class));
+
                     String p1 = dataSnapshot.child(inning).child("CurBat1").getValue(String.class);
                     String p2 = dataSnapshot.child(inning).child("CurBat2").getValue(String.class);
 
@@ -986,6 +1161,8 @@ public class Manager extends AppCompatActivity
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
+                    CurrentBowler_name = task.getResult().child(CurrentBowler).child("Name").getValue(String.class);
+                    Log.e("uu",""+CurrentBowler_name);
                     CurrentBowler_runs = task.getResult().child(CurrentBowler).child("RunsGiven").getValue(Integer.class);
                     CurrentBowler_overs = task.getResult().child(CurrentBowler).child("Overs").getValue(Integer.class);
                     CurrentBowler_wickets = task.getResult().child(CurrentBowler).child("WicketsTaken").getValue(Integer.class);
@@ -1010,6 +1187,7 @@ public class Manager extends AppCompatActivity
             BatsmanOnStrike_fours = 0;
             BatsmanOnStrike_sixes = 0;
             BatsmanOnStrike_strikerate = 0;
+            myref.child(BatTeam).child(BatsmanOnStrike).child("status").setValue("NOT OUT");
 
         }else{
             BatsmanNonStrike_runs = 0;
@@ -1017,9 +1195,38 @@ public class Manager extends AppCompatActivity
             BatsmanNonStrike_fours = 0;
             BatsmanNonStrike_sixes = 0;
             BatsmanNonStrike_strikerate = 0;
+            myref.child(BatTeam).child(BatsmanNonStrike).child("status").setValue("NOT OUT");
 
         }
         UpdateFireBase(); //Save Changes in firebase
+    }
+    private void UpdateRetireBatsmensState(){
+        myref.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    if(strike){
+                        BatsmanOnStrike_name = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Name").getValue(String.class);
+                        BatsmanOnStrike_runs = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Runs").getValue(Integer.class);
+                        BatsmanOnStrike_balls = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Balls").getValue(Integer.class);
+                        BatsmanOnStrike_fours = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Boundaries").getValue(Integer.class);
+                        BatsmanOnStrike_sixes = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("Sixes").getValue(Integer.class);
+                        BatsmanOnStrike_strikerate = task.getResult().child(BatTeam).child(BatsmanOnStrike).child("StrikeRate").getValue(Integer.class);
+                        myref.child(BatTeam).child(BatsmanOnStrike).child("status").setValue("NOT OUT");
+                    }else{
+                        BatsmanNonStrike_name = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Name").getValue(String.class);
+                        BatsmanNonStrike_runs = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Runs").getValue(Integer.class);
+                        BatsmanNonStrike_balls = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Balls").getValue(Integer.class);
+                        BatsmanNonStrike_fours = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Boundaries").getValue(Integer.class);
+                        BatsmanNonStrike_sixes = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("Sixes").getValue(Integer.class);
+                        BatsmanNonStrike_strikerate = task.getResult().child(BatTeam).child(BatsmanNonStrike).child("StrikeRate").getValue(Integer.class);
+                        myref.child(BatTeam).child(BatsmanNonStrike).child("status").setValue("NOT OUT");
+                    }
+                    UpdateFireBase(); //Save Changes in firebase
+                }
+            }
+        });
+
     }
     private void getInning(){
         myref.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -1027,6 +1234,19 @@ public class Manager extends AppCompatActivity
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
                     if(task.getResult().child("isFinished").getValue(Boolean.class)){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Manager.this);
+                        builder.setCancelable(false);
+                        builder.setMessage("Match Finish! Go To Match Summary!");
+                        builder.setPositiveButton("Continue",(DialogInterface.OnClickListener)(dialog,which)->{
+                            myref.child("isFinished").setValue(true);
+                            finish();
+                            Intent manager = new Intent(Manager.this,userScoreCard.class);
+                            manager.putExtra("KEY",matchKEY);
+                            startActivity(manager);
+                        } );
+
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
 
                     }else{
                         inning = task.getResult().child("inning").getValue(String.class);
@@ -1051,11 +1271,13 @@ public class Manager extends AppCompatActivity
             int host_runs = FirstInningRuns+1;
             int vistor_runs = totalRuns;
             if(vistor_runs >= host_runs){
+                StoreOver(ThisOver);
                 AlertDialog.Builder builder = new AlertDialog.Builder(Manager.this);
                 builder.setCancelable(false);
                 builder.setMessage("Match Finish! Go To Match Summary!");
                 builder.setPositiveButton("Continue",(DialogInterface.OnClickListener)(dialog,which)->{
                     myref.child("isFinished").setValue(true);
+                    finish();
                     Intent manager = new Intent(Manager.this,userScoreCard.class);
                     manager.putExtra("KEY",matchKEY);
                     startActivity(manager);

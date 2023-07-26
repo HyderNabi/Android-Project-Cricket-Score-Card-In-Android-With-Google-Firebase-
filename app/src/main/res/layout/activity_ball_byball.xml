@@ -1,0 +1,220 @@
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF8E1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:weightSum="4"> <!-- to show what the parent is -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F9FBE7"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hind_guntur"
+                        android:padding="10dp"
+                        android:text="Ball By Ball Score"
+                        android:textColor="#000000"
+                        android:textSize="20dp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/summary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Match Summary : "
+                                android:textColor="#000000"
+                                android:textSize="17dp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="10dp">
+
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/bTeam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="First Inning"
+                                    android:textColor="#000000"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/FTname"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Team : "
+                                    android:textColor="#000000"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rec_bat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/bTeam"
+                                android:orientation="horizontal">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recycler_view"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginBottom="2dp" />
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </HorizontalScrollView>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="10dp">
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:id="@+id/blTeam"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Second Inning"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="17dp" />
+                                <TextView
+                                    android:id="@+id/STname"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Team : "
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="17dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rec_bowl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/blTeam"
+                                android:orientation="horizontal">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recycler_view2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginBottom="2dp"/>
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </HorizontalScrollView>
+
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
