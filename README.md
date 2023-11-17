@@ -1,4 +1,22 @@
 # Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-
 online scorebook with google firebase
 
-![IMG-20221226-WA0028](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/597ed041-5a0c-4ff1-83c5-db96c80fff03)
+![IMG-20221226-WA0023](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/72825242-858e-43a2-a532-2bccc1e2e82c)
+![IMG-20221226-WA0019](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/e6a2f31d-e7bc-48a8-ba6d-471a470255a7)
+![IMG-20221226-WA0011](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/71ce1bdc-567e-4a9d-9042-b2f218517cc1)
+![IMG-20221226-WA0010](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/0c27c8bf-2967-471f-b4df-ad6cae49ec26)
+![IMG-20221226-WA0012](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/f600d77a-a16b-4009-a5dc-c6079835a343)
+![IMG-20221226-WA0013](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/1e804f0b-4c0a-4495-9d07-a6661905adee)
+![IMG-20221226-WA0015](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/0bf42ea0-3a0d-4801-a59c-cf0c4572d319)
+![IMG-20221226-WA0014](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/57e90f17-699a-4b29-b378-4d5faabe000a)
+![IMG-20221226-WA0016](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/75d6ffde-5dc5-4394-8e50-60569819c2bd)
+![IMG-20221226-WA0017](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/676df4ea-9682-4d8d-a0d0-92dd6078fc3e)
+![IMG-20221226-WA0018](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/14f1058d-a9c2-441b-a36b-080662813916)
+![IMG-20221226-WA0020](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/b8a5d5b2-cc79-490e-a654-4bb6bee3b126)
+![IMG-20221226-WA0021](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/41f265ca-212b-4215-b522-5d46011082b8)
+![IMG-20221226-WA0022](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/e645b5ad-b026-4eaa-8c46-69612ef3eaea)
+![IMG-20221226-WA0024](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/09dfab00-bda1-40ae-b357-92d410afb0e8)
+![IMG-20221226-WA0025](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/29173a95-c6f9-45be-87b1-c3872d1e7f1f)
+![IMG-20221226-WA0026](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/8cf5dbc8-cdcf-47ce-a624-953c995e5f15)
+![IMG-20221226-WA0027](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/f407533d-382c-41a8-8580-f249cb64ba77)
+![IMG-20221226-WA0028](https://github.com/HyderNabi/Android-Project-Cricket-Score-Card-In-Android-With-Google-Firebase-/assets/64793255/524d4380-2e63-4996-887e-2cbf959a7b9b)
